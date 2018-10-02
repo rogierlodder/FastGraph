@@ -34,8 +34,8 @@
                 <ContextMenu>
                     <MenuItem x:Name="LinScale_menu" Header="Linear Scale" Click="LinScale_menu_Click"/>
                     <MenuItem x:Name="LogScale_menu" Header="Logarithmic scale" Click="LogScale_menu_Click"/>
-                    <MenuItem x:Name="SaveData_menu" Header="Save data to file" Click="SaveData_menu_Click" IsEnabled="false"/>
-                    <MenuItem x:Name="SaveImage_menu" Header="Save as image" Click="SaveImage_menu_Click" IsEnabled="false"/>
+                    <MenuItem x:Name="SaveData_menu" Header="Save data to file" Click="SaveData_menu_Click"/>
+                    <MenuItem x:Name="SaveImage_menu" Header="Save as image" Click="SaveImage_menu_Click"/>
                 </ContextMenu>
             </Button.ContextMenu>
             <Button.ToolTip>

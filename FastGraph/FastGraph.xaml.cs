@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -848,18 +850,62 @@ namespace RLControls
 
         private void SaveData_menu_Click(object sender, RoutedEventArgs e)
         {
-            var S = new List<List<string>>();
-            foreach (var G in AllGraphs)
+            var Dlg = new SaveFileDialog()
             {
-                var D = new List<string>();
-                for (int i=0; i<D.Count; i++) D.Add($"{G.data[i,0]},{G.data[i,1]}");
-                S.Add(D);
+                FileName = "Data", 
+                DefaultExt = ".csv", 
+                Filter = "Comma separated file (.csv)|*.CSV" 
+            };
+            bool? result = Dlg.ShowDialog();
+            if (result == true)
+            {
+                FileInfo F = new FileInfo(Dlg.FileName);
+                foreach (var G in AllGraphs)
+                {
+                    var S = new List<string>();
+                    for (int i = 0; i < G.data.Length / 2; i++) S.Add($"{G.data[i, 0]},{G.data[i, 1]}");
+
+                    var filename = $"{F.DirectoryName}\\{F.Name.Replace(F.Extension, "")}_{G.name}{F.Extension}";
+                    if (File.Exists(filename))
+                    {
+                        var res = MessageBox.Show("This file already exists. Do you want to overwrite it?", "File write error", MessageBoxButton.OKCancel);
+                        if (res == MessageBoxResult.Cancel) return;
+                    }
+                    try
+                    {
+                        File.WriteAllLines(filename, S);
+                    }
+                    catch { }
+                }
+
             }
         }
 
         private void SaveImage_menu_Click(object sender, RoutedEventArgs e)
         {
+            var Dlg = new SaveFileDialog()
+            {
+                FileName = "Image", 
+                DefaultExt = ".png", 
+                Filter = "Comma separated file (.png)|*.PNG"
+            };
+            bool? result = Dlg.ShowDialog();
+            if (result == true)
+            {
+                BitmapEncoder encoder = new PngBitmapEncoder();
+                SaveWithEncoder(canvas, Dlg.FileName, encoder);
+            }
+        }
 
+        void SaveWithEncoder(FrameworkElement element, string fileName, BitmapEncoder enc)
+        {
+            RenderTargetBitmap bitmap = new RenderTargetBitmap((int)element.ActualWidth, (int)element.ActualHeight, 96, 96, PixelFormats.Pbgra32);
+            bitmap.Render(element);
+
+            BitmapFrame frame = BitmapFrame.Create(bitmap);
+            enc.Frames.Add(frame);
+
+            using (var stream = File.Create(fileName)) { enc.Save(stream); }
         }
 
         private void LinScale_menu_Click(object sender, RoutedEventArgs e)
