@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastGraph", "FastGraph\FastGraph.csproj", "{FFA866F2-EA0E-4134-847D-8B037062DCCA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApp", "ExampleApp\ExampleApp.csproj", "{5DDA5068-CEF8-4B19-A8E4-0986390CF349}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastGraph", "FastGraph\FastGraph.csproj", "{E021F653-6A3C-4787-96A0-3F1AB7A2E3BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FFA866F2-EA0E-4134-847D-8B037062DCCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FFA866F2-EA0E-4134-847D-8B037062DCCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FFA866F2-EA0E-4134-847D-8B037062DCCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FFA866F2-EA0E-4134-847D-8B037062DCCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DDA5068-CEF8-4B19-A8E4-0986390CF349}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DDA5068-CEF8-4B19-A8E4-0986390CF349}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DDA5068-CEF8-4B19-A8E4-0986390CF349}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DDA5068-CEF8-4B19-A8E4-0986390CF349}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E021F653-6A3C-4787-96A0-3F1AB7A2E3BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E021F653-6A3C-4787-96A0-3F1AB7A2E3BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E021F653-6A3C-4787-96A0-3F1AB7A2E3BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E021F653-6A3C-4787-96A0-3F1AB7A2E3BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
